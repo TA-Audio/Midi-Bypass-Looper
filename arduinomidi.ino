@@ -11,7 +11,7 @@ const int relay_pins[] = { RELAY_PIN_1, RELAY_PIN_2 };
 
 void controlChange(byte channel, byte number, byte value) {
 
-  if (number == 13) {
+  if (number == 13 || number == 10) {
     // Check if the relay pins are already on
     bool allOn = true;
     for (int i = 0; i < 2; i++) {
@@ -29,7 +29,7 @@ void controlChange(byte channel, byte number, byte value) {
     }
   }
 
-  if (number == 92 && value == 0) {
+  if ((number == 92 || number == 0) && value == 0) {
      for (int i = 0; i < 2; i++) {
         digitalWrite(relay_pins[i], LOW);
       }
