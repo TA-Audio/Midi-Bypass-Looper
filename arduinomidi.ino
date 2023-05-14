@@ -40,7 +40,7 @@ void controlChange(byte channel, byte number, byte value) {
 void setup() {
   // Initialize the MIDI, relay, and MIDI out objects
 
-  MIDI.begin();
+  MIDI.begin(MIDI_CHANNEL_OMNI);
   MIDI.setHandleControlChange(controlChange);
 
   for (int i = 0; i < 2; i++) {
